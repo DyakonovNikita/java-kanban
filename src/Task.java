@@ -1,16 +1,21 @@
 public class Task {
     private String name;
     private String description;
-    static private int sum_of_tasks = 0;
-    final int id;
     private TaskStatus status;
+    final int id;
 
-    Task(String name, String description) {
+    Task(String name, String description, TaskStatus status, int id) {
         this.name = name;
         this.description = description;
-        this.id = sum_of_tasks;
-        sum_of_tasks++;
-        this.status = TaskStatus.NEW;
+        this.status = status;
+        this.id = id;
+    }
+
+    Task(Task otherTask, int id) {
+        this.name = otherTask.name;
+        this.description = otherTask.description;
+        this.status = otherTask.status;
+        this.id = id;
     }
 
     public String getName() {
@@ -29,13 +34,10 @@ public class Task {
         this.description = description;
     }
 
-    public static int getSum_of_tasks() {
-        return sum_of_tasks;
-    }
-
     public int getId() {
         return id;
     }
+
 
     public TaskStatus getStatus() {
         return status;
@@ -43,5 +45,18 @@ public class Task {
 
     public void setStatus(TaskStatus status) {
         this.status = status;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Task otherTask = (Task) obj;
+        return this.id == otherTask.id;
     }
 }
