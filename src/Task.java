@@ -59,4 +59,5 @@ public class Task {
         Task otherTask = (Task) obj;
         return this.id == otherTask.id;
     }
+
 }

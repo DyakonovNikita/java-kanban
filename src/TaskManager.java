@@ -14,10 +14,6 @@ public class TaskManager {
         return taskHashMap;
     }
 
-    public void setTaskHashMap(HashMap<Integer, Task> taskHashMap) {
-        this.taskHashMap = taskHashMap;
-    }
-
     public void clearTaskHashMap() {
         this.taskHashMap = new HashMap<>();
     }
@@ -41,10 +37,6 @@ public class TaskManager {
         return subtaskHashMap;
     }
 
-    public void setSubtaskHashMap(HashMap<Integer, Subtask> subtaskHashMap) {
-        this.subtaskHashMap = subtaskHashMap;
-    }
-
     public void clearSubtaskHashMap() {
         this.subtaskHashMap = new HashMap<>();
     }
@@ -66,10 +58,6 @@ public class TaskManager {
     // working with Epics
     public HashMap<Integer, Epic> getEpicHashMap() {
         return epicHashMap;
-    }
-
-    public void setEpicHashMap(HashMap<Integer, Epic> epicHashMap) {
-        this.epicHashMap = epicHashMap;
     }
 
     public void clearEpicHashMap() {
