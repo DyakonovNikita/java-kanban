@@ -1,21 +1,19 @@
 public class Task {
-    private String name;
-    private String description;
-    private TaskStatus status;
-    final int id;
+    protected String name;
+    protected String description;
+    protected TaskStatus status;
+    protected int id = -1;
 
-    Task(String name, String description, TaskStatus status, int id) {
+    public Task(String name, String description) {
         this.name = name;
         this.description = description;
-        this.status = status;
-        this.id = id;
+        this.status = TaskStatus.NEW;
     }
 
-    Task(Task otherTask, int id) {
+    public Task(Task otherTask) {
         this.name = otherTask.name;
         this.description = otherTask.description;
         this.status = otherTask.status;
-        this.id = id;
     }
 
     public String getName() {
@@ -38,6 +36,9 @@ public class Task {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public TaskStatus getStatus() {
         return status;
@@ -57,7 +58,16 @@ public class Task {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Task otherTask = (Task) obj;
-        return this.id == otherTask.id;
+        return this.id == otherTask.id || this.id != -1;
     }
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                ", id=" + id +
+                '}';
+    }
 }

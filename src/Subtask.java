@@ -1,18 +1,18 @@
 public class Subtask extends Task {
-    final private Epic epic_owner;
+    private final Epic epicOwner;
 
-    Subtask(String name, String description, TaskStatus status, int id, Epic epic_owner) {
-        super(name, description, status, id);
-        this.epic_owner = epic_owner;
+    public Subtask(String name, String description, Epic epic_owner) {
+        super(name, description);
+        this.epicOwner = epic_owner;
     }
 
-    Subtask(Subtask subtask, int id) {
-        super(subtask.getName(), subtask.getDescription(), subtask.getStatus(), id);
-        this.epic_owner = subtask.getEpic_owner();
+    Subtask(Subtask subtask) {
+        super(subtask.getName(), subtask.getDescription());
+        this.epicOwner = subtask.getEpicOwner();
     }
 
-    public Epic getEpic_owner() {
-        return epic_owner;
+    public Epic getEpicOwner() {
+        return epicOwner;
     }
 
 }
