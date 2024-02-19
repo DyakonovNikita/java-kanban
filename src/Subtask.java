@@ -15,4 +15,15 @@ public class Subtask extends Task {
         return epicOwner;
     }
 
+
+    @Override
+    public String toString() {
+        return "Subtask{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                ", id=" + id +
+                ", epicOwner=" + epicOwner +
+                "} ";
+    }
 }

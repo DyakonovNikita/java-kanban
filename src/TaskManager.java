@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TaskManager {
-    static private int tasksIdentifier = 0;
+    private static int tasksIdentifier = 1;
     private HashMap<Integer, Task> taskHashMap = new HashMap<>();
     private HashMap<Integer, Subtask> subtaskHashMap = new HashMap<>();
     private HashMap<Integer, Epic> epicHashMap = new HashMap<>();
@@ -35,6 +35,10 @@ public class TaskManager {
         taskHashMap.put(task.getId(), task);
     }
 
+    public void removeTaskById(int id) {
+        taskHashMap.remove(id);
+    }
+
     // working with Subtasks
     public HashMap<Integer, Subtask> getSubtaskHashMap() {
         return subtaskHashMap;
@@ -48,17 +52,27 @@ public class TaskManager {
         return subtaskHashMap.get(id);
     }
 
+
     public void addNewSubtask(Subtask subtask) {
         subtask.setId(tasksIdentifier);
-        Subtask newSubtask = new Subtask(subtask);
-        updateEpic(newSubtask.getEpicOwner());
-        subtaskHashMap.put(tasksIdentifier, newSubtask);
+        Epic epicOwner = subtask.getEpicOwner();
+        ArrayList<Subtask> subtasks = epicOwner.getSubtasks();
+        subtasks.add(subtask);
+        epicOwner.setSubTasks(subtasks);
+        updateEpic(subtask.getEpicOwner());
+        subtaskHashMap.put(tasksIdentifier, subtask);
         tasksIdentifier++;
     }
 
     public void updateSubtask(Subtask subtask) {
         updateEpic(subtask.getEpicOwner());
         subtaskHashMap.put(subtask.getId(), subtask);
+    }
+
+    public void removeSubtaskById(int id) {
+        Subtask subtaskToRemove = subtaskHashMap.get(id);
+        updateEpic(subtaskToRemove.getEpicOwner());
+        subtaskHashMap.remove(id);
     }
 
     // working with Epics
@@ -76,9 +90,7 @@ public class TaskManager {
 
     public void addNewEpic(Epic epic) {
         epic.setId(tasksIdentifier);
-        Epic newEpic = new Epic(epic);
-        updateEpic(newEpic);
-        epicHashMap.put(tasksIdentifier, newEpic);
+        epicHashMap.put(tasksIdentifier, epic);
         tasksIdentifier++;
     }
 
@@ -110,6 +122,10 @@ public class TaskManager {
             }
         }
         epic.setStatus(epicStatus);
+    }
+
+    public void removeEpicById(int id) {
+        epicHashMap.remove(id);
     }
 
 }
