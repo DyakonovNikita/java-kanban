@@ -4,11 +4,11 @@ public class Epic extends Task {
 
     private ArrayList<Subtask> subtasks = new ArrayList<>();
 
-    Epic(String name, String description) {
+    public Epic(String name, String description) {
         super(name, description);
     }
 
-    Epic(Epic epic) {
+    public Epic(Epic epic) {
         super(epic.getName(), epic.getDescription());
         this.subtasks = epic.subtasks;
     }
