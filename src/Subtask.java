@@ -6,11 +6,6 @@ public class Subtask extends Task {
         this.epicOwner = epic_owner;
     }
 
-    public Subtask(Subtask subtask) {
-        super(subtask.getName(), subtask.getDescription());
-        this.epicOwner = subtask.getEpicOwner();
-    }
-
     public Epic getEpicOwner() {
         return epicOwner;
     }

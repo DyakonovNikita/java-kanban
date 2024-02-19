@@ -26,8 +26,7 @@ public class TaskManager {
 
     public void addNewTask(Task task) {
         task.setId(tasksIdentifier);
-        Task newTask = new Task(task);
-        taskHashMap.put(tasksIdentifier, newTask);
+        taskHashMap.put(tasksIdentifier, task);
         tasksIdentifier++;
     }
 
