@@ -111,8 +111,13 @@ public class TaskManager {
         }
         TaskStatus epicStatus = TaskStatus.NEW;
         for (Subtask subtask : subtasks) {
+            if (subtask.getStatus() == TaskStatus.IN_PROGRESS) {
+                epic.setStatus(TaskStatus.IN_PROGRESS);
+                return;
+            }
+
             if (subtask.getStatus() != epicStatus) {
-                if (epicStatus != TaskStatus.DONE) {
+                if (subtask.getStatus() == TaskStatus.DONE) {
                     epicStatus = TaskStatus.DONE;
                 } else {
                     epic.setStatus(TaskStatus.IN_PROGRESS);

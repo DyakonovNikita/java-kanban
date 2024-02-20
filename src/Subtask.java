@@ -18,7 +18,7 @@ public class Subtask extends Task {
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 ", id=" + id +
-                ", epicOwner=" + epicOwner +
+//                ", epicOwner=" + epicOwner +
                 "} ";
     }
 }
