@@ -58,7 +58,7 @@ public class Task {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Task otherTask = (Task) obj;
-        return this.id == otherTask.id || this.id != -1;
+        return this.id == otherTask.id && this.id != -1;
     }
 
     @Override
