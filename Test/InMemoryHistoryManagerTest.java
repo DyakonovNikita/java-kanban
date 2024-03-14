@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+import ru.practicum.managers.types.InMemoryHistoryManager;
+import ru.practicum.managers.util.Managers;
+import ru.practicum.tasks.types.Task;
 
 import java.util.ArrayList;
 
@@ -8,7 +11,7 @@ class InMemoryHistoryManagerTest {
     @Test
     public void shouldAddingTaskToHistoryAndGetTaskFromHistory() {
         Task task = new Task("Таск", "Описание таска");
-        HistoryManager historyManager = Managers.getDefaultHistory();
+        InMemoryHistoryManager historyManager = Managers.getDefaultHistory();
 
         historyManager.add(task);
         ArrayList<Task> history = historyManager.getHistory();

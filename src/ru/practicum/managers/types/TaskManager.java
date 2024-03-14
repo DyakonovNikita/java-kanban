@@ -1,9 +1,16 @@
-import java.util.ArrayList;
-import java.util.HashMap;
+package ru.practicum.managers.types;
+
+import ru.practicum.tasks.types.Epic;
+import ru.practicum.tasks.types.Subtask;
+import ru.practicum.tasks.types.Task;
+
+
+import java.util.List;
+import java.util.Map;
 
 public interface TaskManager {
     // working with Tasks
-    HashMap<Integer, Task> getTaskHashMap();
+    Map<Integer, Task> getTaskHashMap();
 
     void clearTaskHashMap();
 
@@ -16,7 +23,7 @@ public interface TaskManager {
     void removeTaskById(int id);
 
     // working with Subtasks
-    HashMap<Integer, Subtask> getSubtaskHashMap();
+    Map<Integer, Subtask> getSubtaskHashMap();
 
     void clearSubtaskHashMap();
 
@@ -29,7 +36,7 @@ public interface TaskManager {
     void removeSubtaskById(int id);
 
     // working with Epics
-    HashMap<Integer, Epic> getEpicHashMap();
+    Map<Integer, Epic> getEpicHashMap();
 
     void clearEpicHashMap();
 
@@ -39,9 +46,9 @@ public interface TaskManager {
 
     void updateEpic(Epic epic);
 
-    ArrayList<Subtask> getSubtasksByEpicId(int id);
+    List<Subtask> getSubtasksByEpicId(int id);
 
     void removeEpicById(int id);
 
-    ArrayList<? extends Task> getHistory();
+    List<? extends Task> getHistory();
 }

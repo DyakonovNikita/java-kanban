@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+import ru.practicum.managers.types.InMemoryHistoryManager;
+import ru.practicum.managers.types.InMemoryTaskManager;
+import ru.practicum.managers.util.Managers;
 
 import static org.junit.jupiter.api.Assertions.*;
 

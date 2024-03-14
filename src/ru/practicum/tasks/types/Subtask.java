@@ -1,3 +1,5 @@
+package ru.practicum.tasks.types;
+
 public class Subtask extends Task {
     private final Epic epicOwner;
 
@@ -13,7 +15,7 @@ public class Subtask extends Task {
 
     @Override
     public String toString() {
-        return "Subtask{" +
+        return "tasks.Subtask{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", status=" + status +

@@ -1,6 +1,10 @@
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.practicum.managers.types.InMemoryTaskManager;
+import ru.practicum.managers.types.TaskManager;
+import ru.practicum.tasks.types.Epic;
+import ru.practicum.tasks.types.Subtask;
+import ru.practicum.tasks.types.Task;
 
 import java.util.ArrayList;
 
@@ -31,7 +35,7 @@ class InMemoryTaskManagerTest {
 
     @Test
     public void shouldContainTasksAndFindThemById() {
-        assertEquals(tasks, tasksFromTasksManager, "Task Manager work wrong.");
+        assertEquals(tasks, tasksFromTasksManager, "tasks.Task Manager work wrong.");
     }
 
     @Test
@@ -46,7 +50,29 @@ class InMemoryTaskManagerTest {
             fullTasksFromTasksManager.add(task.toString());
         }
 
-        assertEquals(fullTasks, fullTasksFromTasksManager, "Task Manager work wrong.");
+        assertEquals(fullTasks, fullTasksFromTasksManager, "tasks.Task Manager work wrong.");
     }
 
+    @Test
+    public void shouldSaveTaskHistory() {
+        for (int i = 0; i < 30; i ++) {
+            Task task = new Task("Таск " + i, "Описание таска " + i);
+            taskManager.addNewTask(task);
+            taskManager.getTaskById(i);
+
+        }
+
+        ArrayList<Integer> rightHistoryTaskIdsList = new ArrayList<>();
+        for (int i = 20; i < 30; i++) {
+            rightHistoryTaskIdsList.add(i);
+        }
+
+        ArrayList<Integer> testHistoryTaskIdsList = new ArrayList<>();
+        for (Task task : taskManager.getHistory()) {
+            testHistoryTaskIdsList.add(task.getId());
+        }
+
+        assertEquals(testHistoryTaskIdsList, rightHistoryTaskIdsList);
+
+    }
 }

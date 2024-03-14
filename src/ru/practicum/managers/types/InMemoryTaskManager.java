@@ -1,5 +1,14 @@
+package ru.practicum.managers.types;
+
+import ru.practicum.managers.util.Managers;
+import ru.practicum.tasks.types.Epic;
+import ru.practicum.tasks.types.Subtask;
+import ru.practicum.tasks.types.Task;
+import ru.practicum.tasks.util.TaskStatus;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+
 
 public class InMemoryTaskManager implements TaskManager {
     private static int tasksIdentifier = 1;
@@ -7,7 +16,7 @@ public class InMemoryTaskManager implements TaskManager {
     private HashMap<Integer, Subtask> subtaskHashMap = new HashMap<>();
     private HashMap<Integer, Epic> epicHashMap = new HashMap<>();
 
-    private HistoryManager historyManager = Managers.getDefaultHistory();
+    private InMemoryHistoryManager historyManager = Managers.getDefaultHistory();
 
     // working with Tasks
     @Override

@@ -1,8 +1,11 @@
+package ru.practicum.managers.types;
+
+import ru.practicum.tasks.types.Task;
 import java.util.ArrayList;
 
-public class InMemoryHistoryManager implements HistoryManager{
+public class InMemoryHistoryManager implements HistoryManager {
 
-    ArrayList<Task> history = new ArrayList<>(10);
+    private ArrayList<Task> history = new ArrayList<>();
 
     @Override
     public void add(Task task) {
@@ -10,9 +13,9 @@ public class InMemoryHistoryManager implements HistoryManager{
             history.add(task);
         } else {
             for (int i = 0; i < 9; i++) {
-                history.add(i, history.get(i+1));
+                history.set(i, history.get(i+1));
             }
-            history.add(10, task);
+            history.set(9, task);
         }
     }
 
