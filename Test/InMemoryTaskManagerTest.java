@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.practicum.managers.types.InMemoryTaskManager;
-import ru.practicum.managers.types.TaskManager;
 import ru.practicum.tasks.types.Epic;
 import ru.practicum.tasks.types.Subtask;
 import ru.practicum.tasks.types.Task;
