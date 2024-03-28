@@ -3,9 +3,9 @@ package ru.practicum.tasks.types;
 public class Subtask extends Task {
     private final Epic epicOwner;
 
-    public Subtask(String name, String description, Epic epic_owner) {
+    public Subtask(String name, String description, Epic epicOwner) {
         super(name, description);
-        this.epicOwner = epic_owner;
+        this.epicOwner = epicOwner;
     }
 
     public Epic getEpicOwner() {

@@ -13,7 +13,7 @@ public class InMemoryHistoryManager implements HistoryManager {
             history.add(task);
         } else {
             for (int i = 0; i < 9; i++) {
-                history.set(i, history.get(i+1));
+                history.set(i, history.get(i + 1));
             }
             history.set(9, task);
         }
